@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+    id "nebula.metrics" version "9.2.0"
+}
+
+group 'gradle-metrics-demo'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+metrics {
+    dispatcherType = 'REST'
+    restUri = 'http://localhost:8080/metrics'      // default is 'http://localhost/metrics'
+}
+
